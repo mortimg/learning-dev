@@ -34,7 +34,7 @@ data = {
     ],
     'Age': np.random.randint(18, 80, size=num_rows),
     'Salary': np.random.randint(30000, 120000, size=num_rows),
-    'Joining Date': [
+    'Joining Date': [ 
         '2020-01-15', '2019-03-22', '2021-07-10', '2018-11-30', '2022-05-18',
         '2020-08-25', '2019-12-15', '2021-02-20', '2018-07-04', '2022-03-12'
     ],
@@ -48,3 +48,4 @@ df = pd.DataFrame(data)
 df.to_csv('manual_mock_data.csv', index=False)
 
 print("Mock data has been created and saved to 'manual_mock_data.csv'")
+print("adding another line for branch stage and changes")
