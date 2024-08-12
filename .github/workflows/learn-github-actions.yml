@@ -33,11 +33,10 @@ jobs:
         env:
           AGO_USER: ${{secrets.AGO_USER}}
           AGO_PASS: ${{secrets.AGO_PASS}}
-
         run: |
           # you may have to activate the environment before running the 
           # python script, and you likley need to say python3 vs just python
           conda init bash
           . ~/.bashrc
-          conda activate OSS
+          conda activate OSS_env
           python3 mock_data.py
