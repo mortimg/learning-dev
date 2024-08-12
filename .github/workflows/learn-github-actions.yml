@@ -41,4 +41,4 @@ jobs:
           conda init bash
           . ~/.bashrc
           conda activate OSS
-          python3 BCHydro-Outages/BCHydro_Outages.py
+          python3 mock_data.py
