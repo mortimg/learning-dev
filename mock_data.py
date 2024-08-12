@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+from arcgis.gis import GIS
+import os
 
 # Define the number of rows
 num_rows = 10
@@ -45,7 +47,17 @@ data = {
 df = pd.DataFrame(data)
 
 # Save DataFrame to a CSV file
-df.to_csv('manual_mock_data.csv', index=False)
+#df.to_csv('manual_mock_data.csv', index=False)
+
+AGO_USER = os.environ["AGO_USER"]
+AGO_PASS = os.environ["AGO_PASS"]
+
+gis = GIS(AGO_USER, AGO_PASS)
+item = gis.content.get("015b3ea80bde48d5a364888a9d225d4d")
+
+print(item.title)
+
+
 
 print("Mock data has been created and saved to 'manual_mock_data.csv'")
 print("adding another line for branch stage and changes")
