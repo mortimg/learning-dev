@@ -38,7 +38,7 @@ data = {
         '2020-01-15', '2019-03-22', '2021-07-10', '2018-11-30', '2022-05-18',
         '2020-08-25', '2019-12-15', '2021-02-20', '2018-07-04', '2022-03-12'
     ],
-    'Score': np.random.uniform(0, 100, size=num_rows)
+    'Score': np.random.uniform(0, 10, size=num_rows)
 }
 
 # Create a DataFrame
