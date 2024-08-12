@@ -52,7 +52,7 @@ df = pd.DataFrame(data)
 AGO_USER = os.environ["AGO_USER"]
 AGO_PASS = os.environ["AGO_PASS"]
 
-gis = GIS(AGO_USER, AGO_PASS)
+gis = GIS("https://www.arcgis.com",AGO_USER, AGO_PASS)
 item = gis.content.get("015b3ea80bde48d5a364888a9d225d4d")
 
 print(item.title)
