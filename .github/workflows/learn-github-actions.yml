@@ -1,13 +1,44 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
+
 on: [push]
+
 jobs:
-  check-bats-version:
+  build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: '20'
-      - run: npm install -g bats
-      - run: bats -v
+          python-version: '3.11'
+
+      - name: Set up Conda environment
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          activate-environment: OSS_env
+          python-version: 3.11
+
+      - name: Install dependencies
+        uses: nick-fields/retry@v3
+        with:
+           timeout_minutes: 10
+           max_attempts: 3
+           shell: bash
+           command: |
+             conda env update --file requirements.yaml --name OSS_env
+             conda list -n OSS_env
+        
+      - name: Run script
+        shell: bash
+        env:
+          AGO_USER: ${{secrets.AGO_USER}}
+          AGO_PASS: ${{secrets.AGO_PASS}}
+
+        run: |
+          # you may have to activate the environment before running the 
+          # python script, and you likley need to say python3 vs just python
+          conda init bash
+          . ~/.bashrc
+          conda activate OSS
+          python3 BCHydro-Outages/BCHydro_Outages.py
