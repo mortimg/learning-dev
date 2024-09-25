@@ -46,8 +46,11 @@ data = {
 # Create a DataFrame
 df = pd.DataFrame(data)
 
-# Save DataFrame to a CSV file
-#df.to_csv('manual_mock_data.csv', index=False)
+#Save DataFrame to a CSV file
+df.to_csv('manual_mock_data.csv', index=False)
+
+df2 = pd.read_csv('manual_mock_data.csv')
+print(df2)
 
 AGO_USER = os.environ["AGO_USER"]
 AGO_PASS = os.environ["AGO_PASS"]
