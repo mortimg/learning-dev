@@ -3,6 +3,8 @@ import numpy as np
 from arcgis.gis import GIS
 import os
 
+#This is a comment line
+
 # Define the number of rows
 num_rows = 10
 
